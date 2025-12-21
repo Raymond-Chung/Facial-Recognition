@@ -7,13 +7,13 @@ img_h, img_w = 90, 90
 batch = 64
 
 train_ds = tf.keras.utils.image_dataset_from_directory (
-    "/Users/raymondchung/Documents/CS/project/images/facial_emotions/train",
+    "../images/facial_emotions/train",
     image_size = (img_h, img_w),
     batch_size = batch
 )
 
 test_ds = tf.keras.utils.image_dataset_from_directory (
-    "/Users/raymondchung/Documents/CS/project/images/facial_emotions/test",
+    "../images/facial_emotions/test",
     image_size = (img_h, img_w),
     batch_size = batch
 )
