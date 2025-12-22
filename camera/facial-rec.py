@@ -15,7 +15,8 @@ for i in range(len(emotions)):
 monkey_dict = {
                 'neutral' : cv2.imread('../images/monkeys/flip_monkey/IMG_6219.jpg'), 
                 'happy' : cv2.imread('../images/monkeys/money_monkey/IMG_6223.jpg'),
-                'surprise' : cv2.imread('../images/monkeys/gasp_monkey/IMG_6220.jpg')}
+                'surprise' : cv2.imread('../images/monkeys/gasp_monkey/IMG_6220.jpg')
+                }
 
 cap = cv2.VideoCapture(0)
 
@@ -30,12 +31,7 @@ UPDATE_N_FRAME = 30
 last_face = []
 last_emotion = ""
 
-# Resizing and moving window (WINDOW_NORMAL allows for resizing)
-# dummy_img = np.zeros((10, 10, 3), np.uint8) # creates a 10x10 matrix of 0's w/ 3 color channels. unit 8 = unsigned int 8 bit
-# cv2.imshow('Emotion Dection', dummy_img)
-
 first_frame = True
-
 
 while True:
     # Find haar cascade to draw bounding box around face
@@ -78,17 +74,17 @@ while True:
     cv2.imshow('Emotion Detection', frame)
 
     if first_frame: 
+        # Resizing and moving window (WINDOW_NORMAL allows for resizing)
         cv2.namedWindow('Emotion Detection', cv2.WINDOW_NORMAL)
         cv2.moveWindow('Emotion Detection', 0, 0)
         cv2.resizeWindow('Emotion Detection', 640, 360)
         first_frame = False
     
     monkey = monkey_dict.get(last_emotion)
-
     if monkey is not None:
         cv2.namedWindow('Monkey', cv2.WINDOW_NORMAL)
         cv2.imshow('Monkey', monkey)
-        cv2.moveWindow('Monkey', 500, 0)
+        cv2.moveWindow('Monkey', 800, 0)
         # cv2.resizeWindow('Monkey', 640, 360)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
