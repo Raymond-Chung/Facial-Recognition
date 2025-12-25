@@ -1,1 +1,17 @@
+# Ignore the virtual environment
 .venv
+venv/
+env/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore large model files (if you don't want them on GitHub)
+*.keras
+*.h5
+
+# Ignore macOS system files
+.DS_Store
+
+images/
