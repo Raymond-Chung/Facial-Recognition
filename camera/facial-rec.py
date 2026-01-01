@@ -13,9 +13,12 @@ for i in range(len(emotions)):
     emotion_dict[i] = emotions[i]
 
 monkey_dict = {
-                'neutral' : cv2.imread('../images/monkeys/flip_monkey/IMG_6219.jpg'), 
-                'happy' : cv2.imread('../images/monkeys/money_monkey/IMG_6223.jpg'),
-                'surprise' : cv2.imread('../images/monkeys/gasp_monkey/IMG_6220.jpg')
+                'angry' : cv2.imread('../images/monkey_images/angry.jpg'),
+                'fear' : cv2.imread('../images/monkey_images/fear.jpg'),
+                'happy' : cv2.imread('../images/monkey_images/happy.jpg'),
+                'neutral' : cv2.imread('../images/monkey_images/neutral.jpg'), 
+                'sad' : cv2.imread('../images/monkey_images/sad.jpg'), 
+                'surprise' : cv2.imread('../images/monkey_images/suprise.jpg')
                 }
 
 cap = cv2.VideoCapture(0)
