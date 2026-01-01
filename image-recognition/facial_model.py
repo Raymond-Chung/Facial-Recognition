@@ -34,6 +34,8 @@ num_classes = len(class_names)
 model = tf.keras.Sequential(
     [  
     # tf.keras.Input(shape=(90, 90, 3)),
+    layers.RandomFlip("horizontal"),
+    layers.RandomRotation(0.1), 
     layers.Rescaling(1./255),
     layers.Conv2D(16, 3, padding='same', activation='relu'), 
 	layers.MaxPooling2D(), 
@@ -43,13 +45,13 @@ model = tf.keras.Sequential(
 	layers.MaxPooling2D(), 
 	layers.Flatten(), 
 	layers.Dense(128, activation='relu'), 
-    layers.Dense(num_classes)
+    layers.Dense(num_classes, activation='softmax')
     ]
 )
 
 model.compile(
     optimizer = "adam",
-    loss=tf.losses.SparseCategoricalCrossentropy(from_logits = True),
+    loss=tf.losses.SparseCategoricalCrossentropy(from_logits = False),
     metrics=['accuracy']
 )
 
